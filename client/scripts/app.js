@@ -1,13 +1,33 @@
 // YOUR CODE HERE:
+/*
+var message = {
+  username: 'shawndrost',
+  text: 'trololo',
+  roomname: '4chan'
+};
+*/
+
 var app = {
   server: 'https://api.parse.com/1/classes/messages'
 };
+app.username = window.location.search.split('').slice(10).join('');
+// GO BETTER UNDERSTAND INPUT AND HOW IT RELATES TO FORMS / BUTTONS / SUBMISSION
+$('button').on('click', function(event) {
+  var text = $('.message').val();
+  var message = {
+    username: app.username,
+    text: text,
+    roomname: undefined
+  };
+  console.log(message);
+  event.preventDefault();
+});
+
 
 app.init = function () {
 
 };
-
-app.send = function() {
+app.send = function(message) {
   $.ajax({
  // This is the url you should use to communicate with the parse API server.
     url: app.server,
