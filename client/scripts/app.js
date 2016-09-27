@@ -54,6 +54,7 @@ app.fetch = function() {
     url: app.server,
     type: 'GET',
     contentType: 'application/json',
+    data: {'order': '-createdAt'},
     success: function (data) {
       data.results.forEach(function (data) {
         if ($('.rooms').data().rooms === data.roomname) {
