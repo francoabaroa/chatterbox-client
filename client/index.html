@@ -22,10 +22,9 @@
     </script>
   </head>
   <body>
-      <div id="main">
+      <div class="main">
     <h1>chatterbox</h1>
-    <div class="spinner"><img src="../client/images/spiffygif_46x46.gif"></div>
-    <div class="rooms">
+    <div class="rooms" data-rooms="lobby">
       Room:
       <select class="roomSelect">
       </select>
@@ -34,7 +33,9 @@
       <input type="text" name="message" class="message"/>
       <button class="submit">Submit</button>
     </form>
-    <div id="chats"></div>
+    <button class="clear">Clear</button>
+
+    <div class="chats"></div>
   </div>
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
