@@ -57,9 +57,9 @@ app.fetch = function() {
     success: function (data) {
       data.results.forEach(function (data) {
         if ($('.rooms').data().rooms === data.roomname) {
+          console.log(data);
           app.renderMessage(data);
         }
-        console.log(data);
       });
     },
     error: function (data) {
@@ -67,6 +67,7 @@ app.fetch = function() {
       console.error('chatterbox: Failed to receive message', data);
     }
   });
+
   return chatData;
 };
 
@@ -75,7 +76,14 @@ app.clearMessages = function() {
 };
 
 app.renderMessage = function(message) {
-  $('.chats').append('<div>' + '@' + message.username + ': ' + message.text + '</div>');
+  console.log(moment(message.createdAt).format('MMM Do, h:mm: a'));
+  $('.chats')
+    .append('<div class=messages ' + moment(message.createdAt).format('MMM Do, h:mm: a') + 
+      '><button class=usernameInMessage>' + '@' + message.username + 
+      '</button> <span class=textInMessage>' + ': ' + message.text + 
+      '</span> <span class=timeInMessage>' + ': ' + moment(message.createdAt).format('MMM Do, h:mm: a') + '</span> </div>');
+    
+
 };
 
 
@@ -85,10 +93,3 @@ app.renderRoom = function(roomName) {
 
 var parseRequest = app.fetch();
 
-  //console.log(parseRequest);
-
-$(document).ready(function () {
-  // serverFetch.forEach(function (value) {
-  //   $('.chats').append('<div>' + '@' + value.username + value.text + '</div>');
-  // });
-});
