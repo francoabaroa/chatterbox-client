@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
     <title>Chatterbox</title>
     <link rel="stylesheet" href="styles/styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Coming+Soon" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
     <!-- dependencies -->
 
@@ -21,21 +21,30 @@
         window.location.search = newSearch;
         
       }
+
     </script>
   </head>
   <body>
       <div class="main">
     <h1>Chatterbox</h1>
+    <br>
     <div class="rooms" data-rooms="lobby">
       Room:
       <select class="roomSelect">
       </select>
+      <form action="#" id="" method="">
+      <input type="text" name="room" class="roomField"/>
+      <button class="createRoom">Create Room</button>
+      </form>
     </div>
-    <form action="#" id="send" method="post">
+    <form action="#" id="" method="">
       <input type="text" name="message" class="message"/>
       <button class="submit">Submit</button>
     </form>
-    <button class="refresh">Refresh</button>
+    
+    <button class="refresh">Refresh Messages</button>
+    
+  
     <button class="clear">Clear</button>
 
     <div class="chats"></div>
