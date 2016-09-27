@@ -81,7 +81,7 @@ $(document).ready(function() {
 
     $('.chats')
 
-    ('<div class=messages ' + moment(message.createdAt).format('MMM Do, h:mm: a') + 
+    var ('<div class=messages ' + moment(message.createdAt).format('MMM Do, h:mm: a') + 
         '><button class=usernameInMessage>' + '@' + message.username + 
         '</button> <span class=textInMessage>' + ': ' + message.text + 
         '</span> <div class=timeInMessage>' + moment(message.createdAt).format('MMM Do, h:mm: a') + '</div> </div>').text();
