@@ -1,7 +1,5 @@
   var app = {
-    server: 'https://api.parse.com/1/classes/messages',
-    $messages: $('.messages'),
-    $username: $('.username')
+    server: 'https://api.parse.com/1/classes/messages'
   };
 
 $(document).ready(function() {
@@ -55,7 +53,9 @@ $(document).ready(function() {
   };
 
   app.fetch = function() {
+    var chatData;
     $.ajax({
+      // This is the url you should use to communicate with the parse API server.
       url: app.server,
       type: 'GET',
       contentType: 'application/json',
@@ -70,6 +70,7 @@ $(document).ready(function() {
         console.error('chatterbox: Failed to receive message', data);
       }
     });
+    return chatData;
   };
 
   app.clearMessages = function() {
@@ -79,12 +80,30 @@ $(document).ready(function() {
   //Learn to understand and organize appended DOM elements
   app.renderMessage = function(message, internal) {
 
-    $('.chats')
+    var messagEscape = message.text.split('');
+    var usernamEscape = message.username.split('');
 
-    var ('<div class=messages ' + moment(message.createdAt).format('MMM Do, h:mm: a') + 
+    //SOME JANKY ESCAPING FOR MESSAGES
+    if (messagEscape.includes('<')) {
+      var index = messagEscape.indexOf('<');
+      messagEscape[index] = '&lt;';
+    }
+   
+    message.text = messagEscape.join('');
+
+    //SOME JANKY ESCAPING FOR MESSAGES
+    if (usernamEscape.includes('<')) {
+      var index = usernamEscape.indexOf('<');
+      usernamEscape[index] = '&lt;';
+    }
+   
+    message.username = usernamEscape.join('');
+    
+    $('.chats')
+      .append('<div class=messages ' + moment(message.createdAt).format('MMM Do, h:mm: a') + 
         '><button class=usernameInMessage>' + '@' + message.username + 
         '</button> <span class=textInMessage>' + ': ' + message.text + 
-        '</span> <div class=timeInMessage>' + moment(message.createdAt).format('MMM Do, h:mm: a') + '</div> </div>').text();
+        '</span> <div class=timeInMessage>' + moment(message.createdAt).format('MMM Do, h:mm: a') + '</div> </div>');
   };
 
 
