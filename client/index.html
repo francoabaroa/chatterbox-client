@@ -26,29 +26,35 @@
   </head>
   <body>
       <div class="main">
-    <h1>Chatterbox</h1>
-    <br>
-    <div class="rooms" data-rooms="lobby">
-      Room:
-      <select class="roomSelect">
-      </select>
-      <form action="#" id="" method="">
-      <input type="text" name="room" class="roomField"/>
-      <button class="createRoom">Create Room</button>
-      </form>
-    </div>
-    <form action="#" id="" method="">
-      <input type="text" name="message" class="message"/>
-      <button class="submit">Submit</button>
-    </form>
-    
-    <button class="refresh">Refresh Messages</button>
-    
-  
-    <button class="clear">Clear</button>
+        <h1>Chatterbox</h1>
+        
+        <br>
 
-    <div class="chats"></div>
-  </div>
+        <div class="rooms" data-rooms="lobby">
+          <form action="#" id="roomform" method="" autocomplete="off">
+            <span class="room"> Room:
+              <select id="roomSelect">
+                <option value="lobby"> Lobby </option>
+              </select>
+            </span>
+            <input type="text" name="room" class="roomField"/>
+            <button class="createRoom">Create Room</button>
+          </form>
+        </div>
+
+        <form action="#" id="send" method="post" autocomplete="off">
+          <input type="text" name="message" class="message"/>
+        </form>
+        
+        <button class="submit">Send</button>
+        <button class="refresh">Refresh</button>
+        <button class="clear">Clear</button>
+
+         <br>
+         <br>
+
+        <div class="chats"></div>
+    </div>
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/moment/moment.js"></script>
