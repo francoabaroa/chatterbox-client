@@ -9,23 +9,14 @@ h1{
     padding:15px;
     border:4px solid #F24153;
     border-radius: 40px;
-    width:15%;
+    width:auto;
     align:center;
     margin:auto;
     background-color: white;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
-    font-size: 25px;
-}
-
-#main, #chats {
-    width: 500px;
-    margin: auto;
-    text-align: left;
-    background: white;
-    padding: 50px 60px;
-    border: solid #ddd;
-    border-width: 0 1px 1px 1px;
+    font-size: 45px;
+    text-overflow: ellipsis;
 }
 
 
@@ -45,6 +36,7 @@ h1{
     line-height: 13px;
 }
 
+
 .messages {
     padding:15px;
     border:4px solid #F24153;
@@ -53,6 +45,7 @@ h1{
     background-color: white;
     font-family: 'Montserrat', sans-serif;
     font-size: 30px;
+    overflow: auto;
 }
 
 .submit {
@@ -66,6 +59,11 @@ h1{
     font-size: 15px;
     outline:none;
 }
+
+.select option[selected] {
+   color: red;
+}
+
 
 .timeInMessage{
     font-size: 12px;
@@ -174,6 +172,19 @@ form input[class=roomField] {
 }
 
 .friend {
-    background-color: #4CC355;
+    background-color: #F24153;
+    color: white;
+    border-color: black;
+}
+
+.room {
+    padding:15px;
+    border:4px solid #F24153;
+    border-radius: 40px;
+    margin:10px;
+    background-color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
 }
 
